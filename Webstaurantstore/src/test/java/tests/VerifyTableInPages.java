@@ -32,7 +32,7 @@ public class VerifyTableInPages {
 		driver = new ChromeDriver();
 		searchTitle = new SearchTitle(driver);
 		js = (JavascriptExecutor)driver;
-		reportType = Variables.SIMPLE_TESTCASE_REPORT; // DETAIL_TESTCASE_REPORT
+		reportType = Variables.REPORT; // DETAIL_TESTCASE_REPORT
 	}
 
 	@Before
@@ -62,7 +62,7 @@ public class VerifyTableInPages {
 		}
 
 		//Check the search result ensuring every product has the word 'Table' in its title.
-		boolean isTitle = searchTitle.checkContainsTitle("Table",reportType);
+		boolean doesItContain = searchTitle.checkContainsTitle("Table",reportType);
 		js.executeScript("window.scrollTo(0,75)");
 		js.executeScript("window.scrollTo(0,8666)");
 		driver.findElement(By.cssSelector(".rc-pagination-item-9 > .hover\\3A border-green-800")).click();

@@ -74,12 +74,13 @@ public class SearchTitle {
 		wait.until(ExpectedConditions.visibilityOf(productPane));
 		int totalProductPerPage = products2.size();
 		for(int i = 0; i<totalProductPerPage; i++){
-			String productBoxId = "ProductBoxContainer" ;
+			String productBoxId = "itemDescription" ;
 			// System.out.println(this.products2.get(i).getText());
 			boolean isContainKeyword = products2.get(i).getText().contains(keyword);
 			if(!isContainKeyword){
 				result = false;
 				printFailedTitle(productBoxId,keyword,products2.get(i),reportType);
+				//System.out.println(this.products2.get(i).getText() + "-- Failed");
 			}
 		}
 		return result;
